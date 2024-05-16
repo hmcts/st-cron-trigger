@@ -1,0 +1,25 @@
+job:
+  image: 'hmctspublic.azurecr.io/sptribs/cron-trigger:latest'
+  aadIdentityName: sptribs
+  keyVaults:
+      sptribs:
+        secrets:
+          - name: idam-oauth-user
+            alias: IDAM_OAUTH2_CLIENT_ID
+          - name: idam-redirect
+            alias: IDAM_OAUTH2_REDIRECT_URL
+          - name: idam-systemupdate-username
+            alias: IDAM_SYSTEM_UPDATE_USERNAME
+          - name: idam-systemupdate-password
+            alias: IDAM_SYSTEM_UPDATE_PASSWORD
+          - name: idam-sptribs-oauth2-client-secret
+            alias: IDAM_OAUTH2_CLIENT_SECRET
+          - name: sptribs-s2s-secret
+            alias: IDAM_S2S_AUTH_TOTP_SECRET
+          - name: s2s-micro
+            alias: IDAM_S2S_AUTH_MICROSERVICE
+          - name: app-insights-connection-string
+            alias: app_insights_connection_string
+  schedule: "0 1 * * *"
+  global:
+    jobKind: CronJob

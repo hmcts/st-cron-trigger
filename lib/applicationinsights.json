@@ -1,0 +1,6 @@
+{
+  "connectionString": "${file:/mnt/secrets/sptribs/app-insights-connection-string}",
+  "role": {
+    "name": "st-cron-trigger"
+  }
+}
